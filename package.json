@@ -1,10 +1,10 @@
 {
-  "name": "@JoeyD/mollie-payments-medusa",
-  "version": "0.0.13",
+  "name": "@joey-d/mollie-payments-medusa",
+  "version": "0.0.14",
   "description": "A Medusa plugin for Mollie payments.",
-  "author": "Variable Vic",
+  "author": "Joey Daems",
   "license": "MIT",
-  "repository": "https://github.com/variablevic/mollie-payments-medusa",
+  "repository": "https://github.com/JoeyDaems/mollie-payments-medusa",
   "files": [
     ".medusa/server"
   ],
