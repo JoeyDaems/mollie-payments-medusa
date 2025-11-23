@@ -19,24 +19,17 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20.x"
+          cache: "pnpm"
           registry-url: "https://registry.npmjs.org"
 
       - name: Enable Corepack
         run: corepack enable
 
-      - name: Verify/Create .yarnrc.yml
-        run: |
-          if [ ! -f .yarnrc.yml ]; then
-            echo "nodeLinker: node-modules" > .yarnrc.yml
-            echo "Created .yarnrc.yml with nodeLinker: node-modules"
-          else
-            echo "Existing .yarnrc.yml content:"
-            cat .yarnrc.yml
-            if ! grep -q "nodeLinker: node-modules" .yarnrc.yml; then
-              echo "nodeLinker: node-modules" >> .yarnrc.yml
-              echo "Added nodeLinker: node-modules to existing .yarnrc.yml"
-            fi
-          fi
+      - name: Activate pnpm
+        run: corepack prepare pnpm@10.22.0 --activate
+
+      - name: Diagnostic - pnpm version
+        run: pnpm -v
 
       - name: Diagnostic - Print package.json
         run: cat package.json
@@ -86,15 +79,15 @@ jobs:
       # Only run the remaining steps if the version has changed
       - name: Install dependencies
         if: steps.check-version.outputs.version_changed == 'true'
-        run: yarn install --immutable
+        run: pnpm install --frozen-lockfile
 
       - name: Diagnostic - Print workspace info
         if: steps.check-version.outputs.version_changed == 'true'
-        run: yarn workspaces list || echo "No workspaces found"
+        run: pnpm list --depth 0 || echo "No workspaces found"
 
       - name: Build package
         if: steps.check-version.outputs.version_changed == 'true'
-        run: yarn build
+        run: pnpm build
 
       - name: Create GitHub Release
         if: steps.check-version.outputs.version_changed == 'true'
@@ -113,22 +106,16 @@ jobs:
           # Create .npmrc file with auth token for publishing
           echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
           echo "registry=https://registry.npmjs.org/" >> .npmrc
-          # Update Yarn configuration to use npmAuthToken
-          yarn config set npmAuthToken "${{ secrets.NPM_TOKEN }}"
-          yarn config set npmRegistryServer "https://registry.npmjs.org"
           # Print debug info
           echo "NPM config files:"
           ls -la ~/.npmrc .npmrc 2>/dev/null || echo "No .npmrc found"
-          echo "Yarn config:"
-          yarn config get npmAuthToken || echo "No npmAuthToken found"
-          yarn config get npmRegistryServer || echo "No npmRegistryServer found"
+          echo "pnpm registry:"
+          pnpm config get registry || echo "No registry configured"
 
       - name: Publish to npm
         if: steps.check-version.outputs.version_changed == 'true'
         run: |
-          # Try to publish using npm directly if Yarn has issues
-          echo "Attempting to publish with npm..."
-          npm publish --access public
+          pnpm publish --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 

@@ -1,5 +1,5 @@
 {
-  "name": "@variablevic/mollie-payments-medusa",
+  "name": "@JoeyD/mollie-payments-medusa",
   "version": "0.0.13",
   "description": "A Medusa plugin for Mollie payments.",
   "author": "Variable Vic",
@@ -31,45 +31,49 @@
     "prepublishOnly": "medusa plugin:build"
   },
   "dependencies": {
-    "@mollie/api-client": "^4.1.0"
+    "@mollie/api-client": "^4.3.3"
   },
   "devDependencies": {
-    "@medusajs/cli": "2.5.1",
-    "@medusajs/framework": "2.5.1",
-    "@medusajs/medusa": "2.5.1",
-    "@mikro-orm/cli": "6.4.3",
-    "@mikro-orm/core": "6.4.3",
-    "@mikro-orm/knex": "6.4.3",
-    "@mikro-orm/migrations": "6.4.3",
-    "@mikro-orm/postgresql": "6.4.3",
-    "@swc/core": "1.5.7",
-    "@types/node": "^20.0.0",
-    "@types/react": "^18.3.2",
-    "@types/react-dom": "^18.2.25",
+    "@medusajs/admin-shared": "2.11.3",
+    "@medusajs/cli": "2.11.3",
+    "@medusajs/framework": "2.11.3",
+    "@medusajs/medusa": "2.11.3",
+    "@medusajs/types": "2.11.3",
+    "@mikro-orm/cli": "6.6.0",
+    "@mikro-orm/core": "6.6.0",
+    "@mikro-orm/knex": "6.6.0",
+    "@mikro-orm/migrations": "6.6.0",
+    "@mikro-orm/postgresql": "6.6.0",
+    "@swc/core": "1.15.2",
+    "@types/node": "^24.10.1",
+    "@types/react": "^18.3.27",
+    "@types/react-dom": "^18.3.7",
     "awilix": "^8.0.1",
-    "pg": "^8.13.0",
+    "pg": "^8.16.3",
+    "picomatch": "^3.0.1",
     "prop-types": "^15.8.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.6.2",
-    "vite": "^5.2.11",
-    "yalc": "^1.0.0-pre.53"
+    "typescript": "^5.9.3",
+    "vite": "^5.4.21",
+    "yalc": "1.0.0-pre.53"
   },
   "peerDependencies": {
-    "@medusajs/cli": "2.5.1",
-    "@medusajs/framework": "2.5.1",
-    "@medusajs/medusa": "2.5.1",
-    "@mikro-orm/cli": "6.4.3",
-    "@mikro-orm/core": "6.4.3",
-    "@mikro-orm/knex": "6.4.3",
-    "@mikro-orm/migrations": "6.4.3",
-    "@mikro-orm/postgresql": "6.4.3",
+    "@medusajs/cli": "2.11.3",
+    "@medusajs/framework": "2.11.3",
+    "@medusajs/medusa": "2.11.3",
+    "@medusajs/types": "2.11.3",
+    "@mikro-orm/cli": "6.6.0",
+    "@mikro-orm/core": "6.6.0",
+    "@mikro-orm/knex": "6.6.0",
+    "@mikro-orm/migrations": "6.6.0",
+    "@mikro-orm/postgresql": "6.6.0",
     "awilix": "^8.0.1",
-    "pg": "^8.13.0"
+    "pg": "^8.16.3"
   },
   "engines": {
     "node": ">=20"
   },
-  "packageManager": "yarn@4.4.0"
+  "packageManager": "pnpm@10.22.0"
 }

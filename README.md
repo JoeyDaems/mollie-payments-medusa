@@ -64,7 +64,7 @@ A comprehensive payment provider plugin that enables [Mollie](https://www.mollie
 ## Installation
 
 ```bash
-yarn add @variablevic/mollie-payments-medusa
+pnpm add @variablevic/mollie-payments-medusa
 ```
 
 ## Configuration
