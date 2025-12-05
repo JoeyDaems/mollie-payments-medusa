@@ -1,6 +1,6 @@
 {
   "name": "@joey-d/mollie-payments-medusa",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "A Medusa plugin for Mollie payments.",
   "author": "Joey Daems",
   "license": "MIT",
