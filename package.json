@@ -34,22 +34,15 @@
     "@mollie/api-client": "^4.3.3"
   },
   "devDependencies": {
-    "@medusajs/admin-shared": "2.11.3",
-    "@medusajs/cli": "2.11.3",
-    "@medusajs/framework": "2.11.3",
-    "@medusajs/medusa": "2.11.3",
-    "@medusajs/types": "2.11.3",
-    "@mikro-orm/cli": "^6.4.16",
-    "@mikro-orm/core": "^6.4.16",
-    "@mikro-orm/knex": "^6.4.16",
-    "@mikro-orm/migrations": "^6.4.16",
-    "@mikro-orm/postgresql": "^6.4.16",
+    "@medusajs/admin-shared": "2.12.1",
+    "@medusajs/cli": "2.12.1",
+    "@medusajs/framework": "2.12.1",
+    "@medusajs/medusa": "2.12.1",
+    "@medusajs/types": "2.12.1",
     "@swc/core": "1.15.2",
     "@types/node": "^24.10.1",
     "@types/react": "^18.3.27",
     "@types/react-dom": "^18.3.7",
-    "awilix": "^8.0.1",
-    "pg": "^8.16.3",
     "picomatch": "^3.0.1",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
@@ -60,17 +53,10 @@
     "yalc": "1.0.0-pre.53"
   },
   "peerDependencies": {
-    "@medusajs/cli": "2.11.3",
-    "@medusajs/framework": "2.11.3",
-    "@medusajs/medusa": "2.11.3",
-    "@medusajs/types": "2.11.3",
-    "@mikro-orm/cli": "^6.4.16",
-    "@mikro-orm/core": "^6.4.16",
-    "@mikro-orm/knex": "^6.4.16",
-    "@mikro-orm/migrations": "^6.4.16",
-    "@mikro-orm/postgresql": "^6.4.16",
-    "awilix": "^8.0.1",
-    "pg": "^8.16.3"
+    "@medusajs/cli": "2.12.1",
+    "@medusajs/framework": "2.12.1",
+    "@medusajs/medusa": "2.12.1",
+    "@medusajs/types": "2.12.1"
   },
   "engines": {
     "node": ">=20"
