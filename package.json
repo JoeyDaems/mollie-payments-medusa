@@ -1,6 +1,6 @@
 {
   "name": "@joey-d/mollie-payments-medusa",
-  "version": "0.0.16",
+  "version": "0.0.18",
   "description": "A Medusa plugin for Mollie payments.",
   "author": "Joey Daems",
   "license": "MIT",
@@ -53,10 +53,10 @@
     "yalc": "1.0.0-pre.53"
   },
   "peerDependencies": {
-    "@medusajs/cli": "2.12.1",
-    "@medusajs/framework": "2.12.1",
-    "@medusajs/medusa": "2.12.1",
-    "@medusajs/types": "2.12.1"
+    "@medusajs/cli": "^2.12.1",
+    "@medusajs/framework": "^2.12.1",
+    "@medusajs/medusa": "^2.12.1",
+    "@medusajs/types": "^2.12.1"
   },
   "engines": {
     "node": ">=20"
