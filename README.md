@@ -2,20 +2,6 @@
 
 A comprehensive payment provider plugin that enables [Mollie](https://www.mollie.com/gb/) payments on [Medusa](https://medusajs.com/) V2 projects.
 
-<p align="center">
-  <a href="https://twitter.com/intent/follow?screen_name=VariableVic" style="display: inline-block; margin-right: 8px;">
-    <img src="https://img.shields.io/twitter/follow/VariableVic.svg?label=Follow%20@VariableVic" alt="Follow @VariableVic" />
-  </a>
-
-  <a href="https://victorgerbrands.nl">
-    <img src="https://img.shields.io/badge/www-victorgerbrands.nl-blue.svg?style=flat" alt="Website" />
-  </a>
-
-  <a href="https://www.linkedin.com/in/victorgerbrands/">
-    <img src="https://img.shields.io/badge/linkedin-victorgerbrands-blue.svg?style=flat&logo=linkedin" alt="LinkedIn" />
-  </a>
-</p>
-
 ## Table of Contents
 
 - [Features](#features)
@@ -49,8 +35,7 @@ A comprehensive payment provider plugin that enables [Mollie](https://www.mollie
 
 - **Automatic Capture**: Configurable automatic capture of payments.
 
-> [!WARNING]
-> _This plugin has not been tested on a live store. Please conduct thorough testing before using it in a production environment. I am not responsible for any missed or failed payments resulting from the use of this plugin. If you encounter any issues, please report them [here](https://github.com/VariableVic/mollie-payments-medusa/issues)._
+> [!WARNING] > _This plugin has not been tested on a live store. Please conduct thorough testing before using it in a production environment. I am not responsible for any missed or failed payments resulting from the use of this plugin. If you encounter any issues, please report them [here](https://github.com/VariableVic/mollie-payments-medusa/issues)._
 
 ## Prerequisites
 
@@ -58,8 +43,7 @@ A comprehensive payment provider plugin that enables [Mollie](https://www.mollie
 - Node.js v20 or later
 - A [Mollie](https://www.mollie.com/gb/) account and API key with payment methods enabled.
 
-> [!NOTE]
-> _You can get an API key from your Mollie dashboard: click Browse > Developers > API keys_
+> [!NOTE] > _You can get an API key from your Mollie dashboard: click Browse > Developers > API keys_
 
 ## Installation
 
@@ -73,37 +57,37 @@ Add the provider to the `@medusajs/payment` module in your `medusa-config.ts` fi
 
 ```typescript
 modules: [
-    // ... other modules
-    {
-      resolve: "@medusajs/payment",
-      options: {
-        providers: [
-          // ... other providers
-          {
-            resolve: "@variablevic/mollie-payments-medusa/providers/mollie",
-            id: "mollie",
-            options: {
-              apiKey: process.env.MOLLIE_API_KEY,
-              redirectUrl: process.env.MOLLIE_REDIRECT_URL,
-              medusaUrl: process.env.MEDUSA_URL,
-            },
+  // ... other modules
+  {
+    resolve: "@medusajs/payment",
+    options: {
+      providers: [
+        // ... other providers
+        {
+          resolve: "@variablevic/mollie-payments-medusa/providers/mollie",
+          id: "mollie",
+          options: {
+            apiKey: process.env.MOLLIE_API_KEY,
+            redirectUrl: process.env.MOLLIE_REDIRECT_URL,
+            medusaUrl: process.env.MEDUSA_URL,
           },
-        ],
-      },
-    }
-]
+        },
+      ],
+    },
+  },
+];
 ```
 
 ## Configuration Options
 
-| Option        | Description                                                                               | Default                 |
-| ------------- | ----------------------------------------------------------------------------------------- | ----------------------- |
-| `apiKey`      | Your Mollie API key                                                                       | Required                |
-| `redirectUrl` | The URL to redirect to after payment                                                      | Required                |
-| `medusaUrl`   | The URL of your Medusa server                                                             | Required                |
-| `autoCapture` | Whether to automatically capture payments                                                 | `true`                  |
-| `description` | The description that appears on the payment.                                              | `Mollie payment created by Medusa`          |
-| `debug`       | Whether to enable debug mode                                                              | `false`                 |
+| Option        | Description                                  | Default                            |
+| ------------- | -------------------------------------------- | ---------------------------------- |
+| `apiKey`      | Your Mollie API key                          | Required                           |
+| `redirectUrl` | The URL to redirect to after payment         | Required                           |
+| `medusaUrl`   | The URL of your Medusa server                | Required                           |
+| `autoCapture` | Whether to automatically capture payments    | `true`                             |
+| `description` | The description that appears on the payment. | `Mollie payment created by Medusa` |
+| `debug`       | Whether to enable debug mode                 | `false`                            |
 
 ## Environment Variables
 
@@ -130,7 +114,7 @@ To integrate with your storefront, you'll need to implement the payment flow acc
 1. Create a payment session in your checkout flow
 2. Redirect the customer to the Mollie payment page
 3. Handle the webhook notifications to update the payment status
-   
+
 _Example integration using the [Medusa Next.js Starter](https://github.com/medusajs/nextjs-starter-medusa):_
 
 https://github.com/user-attachments/assets/742ee261-5e41-4e33-9a72-faf1a424fc52
@@ -139,7 +123,7 @@ https://github.com/user-attachments/assets/742ee261-5e41-4e33-9a72-faf1a424fc52
 
 The plugin currently supports the following Mollie payment methods:
 
-| Payment Method  | Provider ID                       |
+| Payment Method  | Provider ID                        |
 | --------------- | ---------------------------------- |
 | Hosted Checkout | `pp_mollie-hosted-checkout_mollie` |
 | iDEAL           | `pp_mollie-ideal_mollie`           |
@@ -171,7 +155,7 @@ class MollieNewMethodService extends MollieBase {
 export default MollieNewMethodService;
 ```
 
-Make sure to replace `new method` with the actual Mollie payment method ID. 
+Make sure to replace `new method` with the actual Mollie payment method ID.
 
 Export your new service from `src/providers/mollie/services/index.ts`. Then add your new service to the list of services in `src/providers/mollie/index.ts`.
 
